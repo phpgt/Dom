@@ -60,8 +60,7 @@ HTML;
 		);
 	}
 
-	public function testParseStringWithStyle(): void
-	{
+	public function testParseStringWithStyle(): void {
 		/** @noinspection HtmlRequiredLangAttribute */
 		$html = <<<HTML
 <!doctype html>
