@@ -272,14 +272,14 @@ trait Traversal {
 					continue;
 				}
 
-                if (get_class($node) === CdataSection::class) {
-                    $result = NodeFilter::FILTER_REJECT;
-                } else {
-                    $result = $this->filter->acceptNode($node);
-                    if ($result === NodeFilter::FILTER_ACCEPT) {
-                        return $node;
-                    }
-                }
+				if (get_class($node) === CdataSection::class) {
+					$result = NodeFilter::FILTER_REJECT;
+				} else {
+					$result = $this->filter->acceptNode($node);
+					if ($result === NodeFilter::FILTER_ACCEPT) {
+						return $node;
+					}
+				}
 			}
 			while($result === NodeFilter::FILTER_REJECT
 			&& !is_null($node->firstChild));
