@@ -17,7 +17,7 @@ trait Traversal {
 	|Document|DocumentType|DocumentFragment $validity;
 
 	protected function __construct(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $root,
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$root,
 		int $whatToShow = NodeFilter::SHOW_ALL,
 		NodeFilter|callable|null $filter = null
 	) {
@@ -77,7 +77,7 @@ trait Traversal {
 
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/root */
 	protected function __prop_get_root(
-	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->pRoot;
 	}
 
@@ -93,7 +93,7 @@ trait Traversal {
 
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/currentNode */
 	protected function __prop_get_currentNode(
-	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->pCurrentNode;
 	}
 
@@ -108,7 +108,7 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/parentNode
 	 */
 	public function parentNode(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$node = $this->pCurrentNode;
 
 		while($node && $node !== $this->pRoot) {
@@ -136,7 +136,7 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/firstChild
 	 */
 	public function firstChild(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->traverseChildren("first");
 	}
 
@@ -150,7 +150,7 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/lastChild
 	 */
 	public function lastChild(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->traverseChildren("last");
 	}
 
@@ -164,7 +164,7 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/previousSibling
 	 */
 	public function previousSibling(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->traverseSiblings("previous");
 	}
 
@@ -177,7 +177,7 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/nextSibling
 	 */
 	public function nextSibling(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->traverseSiblings("next");
 	}
 
@@ -192,15 +192,15 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/previousNode
 	 */
 	public function previousNode(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
-		/** @var null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node */
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
+		/** @var null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$node */
 		$node = $this->pCurrentNode;
 
 		while($node !== $this->pRoot) {
 			$sibling = $node->previousSibling;
 
 			while(!is_null($sibling)) {
-				/** @var null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node */
+				/** @var null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$node */
 				$node = $sibling;
 				/** @phpstan-ignore-next-line */
 				$result = $this->filter->acceptNode($node);
@@ -248,7 +248,7 @@ trait Traversal {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker/nextNode
 	 */
 	public function nextNode(
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		if($node = $this->getNextNode($this->pCurrentNode)) {
 			/** @var Node $node */
 			$this->pCurrentNode = $node;
@@ -259,12 +259,13 @@ trait Traversal {
 	}
 
 	private function getNextNode(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $node
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$result = NodeFilter::FILTER_ACCEPT;
 
 		while(true) {
 			do {
+				/** @var Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $node */
 				if($node->firstChild) {
 					$node = $node->firstChild;
 				}
@@ -272,9 +273,14 @@ trait Traversal {
 					continue;
 				}
 
-				$result = $this->filter->acceptNode($node);
-				if($result === NodeFilter::FILTER_ACCEPT) {
-					return $node;
+				if (get_class($node) === CdataSection::class) {
+					$result = NodeFilter::FILTER_REJECT;
+				}
+				else {
+					$result = $this->filter->acceptNode($node);
+					if ($result === NodeFilter::FILTER_ACCEPT) {
+						return $node;
+					}
 				}
 			}
 			while($result === NodeFilter::FILTER_REJECT
@@ -298,7 +304,7 @@ trait Traversal {
 	}
 
 	public function current(
-	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $this->pCurrentNode;
 	}
 
@@ -324,7 +330,7 @@ trait Traversal {
 
 	private function traverseChildren(
 		string $direction
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$node = $this->matchChild($this->pCurrentNode, $direction);
 		if(!$node) {
 			return null;
@@ -333,9 +339,9 @@ trait Traversal {
 	}
 
 	private function recurseTraverseChildren(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node,
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$node,
 		string $direction
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$overrideNode = null;
 
 		while($node) {
@@ -362,7 +368,7 @@ trait Traversal {
 
 	private function traverseSiblings(
 		string $direction
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$node = $this->pCurrentNode;
 
 		if($node === $this->pRoot) {
@@ -386,9 +392,9 @@ trait Traversal {
 	}
 
 	private function matchChild(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node,
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$node,
 		string $direction
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$result = match($direction) {
 			"first" => $node->firstChild,
 			"last", "next", "previous" => $node->lastChild,
@@ -398,9 +404,9 @@ trait Traversal {
 	}
 
 	private function matchSibling(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node,
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$node,
 		string $direction
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		$result = match($direction) {
 			"next" => $node->nextSibling,
 			"previous" => $node->previousSibling,
@@ -411,9 +417,9 @@ trait Traversal {
 	}
 
 	private function nextSkippingChildren(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $node,
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $stayWithin
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $node,
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$stayWithin
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		if($node === $stayWithin) {
 			return null;
 		}
@@ -483,8 +489,8 @@ trait Traversal {
 	 * correct types that are in use.
 	 */
 	private function hintNodeType(
-		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $input
-	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+		Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$input
+	):Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $input;
 	}
 
@@ -495,8 +501,8 @@ trait Traversal {
 	 * correct types that are in use.
 	 */
 	private function hintNullableNodeType(
-		null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment $input
-	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment {
+		null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$input
+	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
 		return $input;
 	}
 }

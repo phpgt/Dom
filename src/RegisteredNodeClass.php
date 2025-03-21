@@ -10,10 +10,10 @@ use DOMNode;
  * functions shared over all Node types.
  *
  * @property-read HTMLDocument|XMLDocument $ownerDocument
- * @property-read null|Node|Element|Text $nextSibling Returns a Node representing the next node in the tree, or null if there isn't such node.
- * @property-read null|Node|Element|Text $firstChild
- * @property-read null|Node|Element|Text $lastChild
- * @property-read null|Node|Element|Text $previousSibling Returns a Node representing the previous node in the tree, or null if there isn't such node.
+ * @property-read null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $nextSibling Returns a Node representing the next node in the tree, or null if there isn't such node.
+ * @property-read null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $firstChild
+ * @property-read null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $lastChild
+ * @property-read null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection $previousSibling Returns a Node representing the previous node in the tree, or null if there isn't such node.
  * @property-read bool $isConnected A boolean indicating whether the Node is connected (directly or indirectly) to the Document object.
  *
  * @method Node|Element cloneNode(bool $deep = false)

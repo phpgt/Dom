@@ -59,4 +59,28 @@ HTML;
 			$document
 		);
 	}
+
+	public function testParseStringWithStyle(): void {
+		/** @noinspection HtmlRequiredLangAttribute */
+		$html = <<<HTML
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test!</title>
+</head>
+<body>
+    <style>
+    </style>
+    <h1>☆ Hello ☆ World ☆</h1>
+</body>
+</html>
+HTML;
+		$sut = new DOMParser();
+		$document = $sut->parseFromString($html, "text/html");
+		self::assertEquals(
+			'☆ Hello ☆ World ☆',
+			trim($document->querySelector('body')->innerText)
+		);
+	}
 }
