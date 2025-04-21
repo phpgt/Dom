@@ -2,6 +2,11 @@ name: CI
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+  actions: read
+  id-token: none
+
 jobs:
   composer:
     runs-on: ubuntu-latest
@@ -24,7 +29,7 @@ jobs:
           php_version: ${{ matrix.php }}
 
       - name: Archive build
-        run: mkdir /tmp/github-actions/ && tar -cvf /tmp/github-actions/build.tar ./
+        run: mkdir /tmp/github-actions/ && tar --exclude=".git" -cvf /tmp/github-actions/build.tar ./
 
       - name: Upload build archive for test runners
         uses: actions/upload-artifact@v4
@@ -161,12 +166,15 @@ jobs:
   remove_old_artifacts:
     runs-on: ubuntu-latest
 
+    permissions:
+      actions: write
+
     steps:
       - name: Remove old artifacts for prior workflow runs on this repository
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api "/repos/${{ github.repository }}/actions/artifacts?name=build-artifact" | jq ".artifacts[] | select(.name | startswith(\"build-artifact\")) | .id" > artifact-id-list.txt
+          gh api "/repos/${{ github.repository }}/actions/artifacts" | jq ".artifacts[] | select(.name | startswith(\"build-artifact\")) | .id" > artifact-id-list.txt
           while read id
           do
             echo -n "Deleting artifact ID $id ... "
