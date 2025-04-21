@@ -2,6 +2,11 @@ name: CI
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+  actions: read
+  id-token: none
+
 jobs:
   composer:
     runs-on: ubuntu-latest
