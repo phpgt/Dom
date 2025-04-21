@@ -171,7 +171,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api "/repos/${{ github.repository }}/actions/artifacts?name=build-artifact" | jq ".artifacts[] | select(.name | startswith(\"build-artifact\")) | .id" > artifact-id-list.txt
+          gh api "/repos/${{ github.repository }}/actions/artifacts" | jq ".artifacts[] | select(.name | startswith(\"build-artifact\")) | .id" > artifact-id-list.txt
           while read id
           do
             echo -n "Deleting artifact ID $id ... "
