@@ -1,6 +1,7 @@
 <?php /** @noinspection HtmlRequiredTitleElement */
 namespace Gt\Dom\Test;
 
+use Error;
 use Gt\Dom\Attr;
 use Gt\Dom\Comment;
 use Gt\Dom\DocumentFragment;
@@ -35,14 +36,17 @@ class HTMLDocumentTest extends TestCase {
 
 	public function testConstructor_createsRootNode():void {
 		$sut = new HTMLDocument("<h1>Test</h1>");
+		$documentElement = $sut->documentElement;
+		$tagName = $documentElement->tagName;
+
 		self::assertEquals(
-			"html",
-			$sut->documentElement->tagName
+			"HTML",
+			$tagName,
 		);
 	}
 
 	public function testConstructor_createsBody():void {
-		$sut = new HTMLDocument("<!<!doctype html><head></head>");
+		$sut = new HTMLDocument("<!doctype html><head></head>");
 		self::assertInstanceOf(Element::class, $sut->body);
 	}
 
@@ -65,7 +69,8 @@ class HTMLDocumentTest extends TestCase {
 	public function testPropBody_readOnly():void {
 		$sut = new HTMLDocument();
 		$property = "body";
-		self::expectException(PropertyReadOnlyException::class);
+		self::expectException(Error::class);
+		self::expectExceptionMessage("Property Gt\\Dom\\HTMLDocument::\$body is read-only");
 		/** @phpstan-ignore-next-line */
 		$sut->$property = "can-not-set";
 	}

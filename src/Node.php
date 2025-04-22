@@ -1,12 +1,22 @@
 <?php
-// phpcs:ignoreFile
 namespace Gt\Dom;
 
-if (version_compare(PHP_VERSION, '8.4', '>=')) {
-	class Node extends Node84 {
+use Dom\Node as NativeNode;
+
+class Node {
+	protected Document $ownerDocument {
+		get {
+			return $this->nodeRegistry->get($this->nativeNode->ownerDocument);
+		}
 	}
-}
-else {
-	class Node extends Node83 {
+
+	protected function __construct(
+		protected NativeNode $nativeNode,
+		protected NodeRegistry $nodeRegistry,
+	) {
+	}
+
+	public function appendChild(HTMLElement $node):Node {
+		return $this->nodeRegistry->get($this->nativeNode->appendChild($node->nativeNode));
 	}
 }

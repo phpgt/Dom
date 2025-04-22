@@ -25,7 +25,7 @@ foreach([HTMLDocument::class, NativeHTMLDocument::class] as $domClassName) {
 echo PHP_EOL;
 
 foreach($timeArray as $className => $time) {
-	echo "$className: " . number_format($time, 4), PHP_EOL;
+	echo "$className: " . number_format($time, 5), PHP_EOL;
 }
 
 $percentDifference = abs(
