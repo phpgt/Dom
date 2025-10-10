@@ -126,3 +126,9 @@ More information will be laid out in the readme when more work has been taken to
 [mdn-links]: https://developer.mozilla.org/docs/Web/API/Document/links
 [mdn-scripts]: https://developer.mozilla.org/docs/Web/API/Document/scripts
 [mdn-title]: https://developer.mozilla.org/docs/Web/API/Document/title
+
+### Proudly sponsored by
+
+[JetBrains Open Source sponsorship program](https://www.jetbrains.com/community/opensource/)
+
+[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://www.jetbrains.com/community/opensource/)
