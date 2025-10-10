@@ -127,7 +127,7 @@ More information will be laid out in the readme when more work has been taken to
 [mdn-scripts]: https://developer.mozilla.org/docs/Web/API/Document/scripts
 [mdn-title]: https://developer.mozilla.org/docs/Web/API/Document/title
 
-### Proudly sponsored by
+# Proudly sponsored by
 
 [JetBrains Open Source sponsorship program](https://www.jetbrains.com/community/opensource/)
 
