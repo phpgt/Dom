@@ -13,7 +13,7 @@ use Gt\PropFunc\MagicProp;
  * @property-read HTMLCollection $scripts Returns all the script elements on the document.
  * @property string $title Sets or gets the title of the current document.
  *
-// * @method getElementsByTagName(string $tagName)
+ * @method getElementsByTagName(string $tagName)
  */
 class HTMLDocument extends Document {
 	use MagicProp;
