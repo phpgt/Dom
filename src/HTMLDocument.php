@@ -37,7 +37,7 @@ class HTMLDocument extends Document {
 		foreach($this->childNodes as $child) {
 // For the workaround noted above, the functionality changes slightly after PHP 8.5.
 			if(version_compare(PHP_VERSION, "8.5") >= 0) {
-				if($child instanceof Comment && $child->nodeValue === "?xml encoding=\"utf-8\" ?") {
+				if($child->nodeValue === "?xml encoding=\"utf-8\" ?") {
 					$this->removeChild($child);
 				}
 			}
