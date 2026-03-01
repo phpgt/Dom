@@ -15,6 +15,7 @@ use Gt\PropFunc\MagicProp;
  *
  * @method getElementsByTagName(string $tagName)
  */
+// phpcs:disable Generic.Metrics.CyclomaticComplexity
 class HTMLDocument extends Document {
 	use MagicProp;
 
