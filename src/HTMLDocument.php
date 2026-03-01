@@ -36,8 +36,18 @@ class HTMLDocument extends Document {
 		$this->loadHTML($html, LIBXML_SCHEMA_CREATE | LIBXML_COMPACT);
 		foreach($this->childNodes as $child) {
 // For the workaround noted above, the functionality changes slightly after PHP 8.5.
-			if($child->nodeValue === "?xml encoding=\"utf-8\" ?") {
-				$this->removeChild($child);
+			if(version_compare(PHP_VERSION, "8.5") >= 0) {
+				if($child instanceof Comment) {
+					var_dump($child->nodeValue);die("!!!!!!!!!!!!!!!!!!!!!!!!");
+				}
+				if($child->nodeValue === "?xml encoding=\"utf-8\" ?") {
+					$this->removeChild($child);
+				}
+			}
+			else {
+				if($child instanceof ProcessingInstruction) {
+					$this->removeChild($child);
+				}
 			}
 		}
 
