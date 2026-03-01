@@ -293,11 +293,20 @@ class Element extends DOMElement implements ArrayAccess, Countable {
 			return null;
 		}
 
-		return call_user_func(
-			"parent::getAttributeNS",
-			$namespace,
-			$name
-		);
+		if(version_compare(PHP_VERSION, "8.4") >= 0) {
+			return call_user_func(
+				parent::getAttributeNS(...),
+				$namespace,
+				$name
+			);
+		}
+		else {
+			return call_user_func(
+				"parent::getAttributeNS",
+				$namespace,
+				$name
+			);
+		}
 	}
 
 	/**
