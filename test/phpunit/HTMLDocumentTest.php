@@ -21,6 +21,7 @@ use PHPUnit\Framework\TestCase;
 use Gt\Dom\HTMLDocument;
 use Throwable;
 
+/** @runTestsInSeparateProcesses */
 class HTMLDocumentTest extends TestCase {
 	public function testConstructor():void {
 		$exception = null;

@@ -13,8 +13,9 @@ use Gt\PropFunc\MagicProp;
  * @property-read HTMLCollection $scripts Returns all the script elements on the document.
  * @property string $title Sets or gets the title of the current document.
  *
-// * @method getElementsByTagName(string $tagName)
+ * @method getElementsByTagName(string $tagName)
  */
+// phpcs:disable Generic.Metrics.CyclomaticComplexity
 class HTMLDocument extends Document {
 	use MagicProp;
 
@@ -35,8 +36,16 @@ class HTMLDocument extends Document {
 			. $html;
 		$this->loadHTML($html, LIBXML_SCHEMA_CREATE | LIBXML_COMPACT);
 		foreach($this->childNodes as $child) {
-			if($child instanceof ProcessingInstruction) {
-				$this->removeChild($child);
+// For the workaround noted above, the functionality changes slightly after PHP 8.4.
+			if(version_compare(PHP_VERSION, "8.4") >= 0) {
+				if(str_contains($child->nodeValue, 'encoding="utf-8" ?')) {
+					$this->removeChild($child);
+				}
+			}
+			else {
+				if($child instanceof ProcessingInstruction) {
+					$this->removeChild($child);
+				}
 			}
 		}
 
