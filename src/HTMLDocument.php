@@ -38,7 +38,7 @@ class HTMLDocument extends Document {
 		foreach($this->childNodes as $child) {
 // For the workaround noted above, the functionality changes slightly after PHP 8.4.
 			if(version_compare(PHP_VERSION, "8.4") >= 0) {
-				if(str_contains($child->nodeValue, 'encoding="utf-8" ?')) {
+				if(str_contains($child->nodeValue ?? "", 'encoding="utf-8" ?')) {
 					$this->removeChild($child);
 				}
 			}
