@@ -37,7 +37,7 @@ class HTMLDocument extends Document {
 		foreach($this->childNodes as $child) {
 // For the workaround noted above, the functionality changes slightly after PHP 8.4.
 			if(version_compare(PHP_VERSION, "8.4") >= 0) {
-				if($child instanceof Comment) {
+				if($child instanceof Comment && str_contains($child->nodeValue, "encoding=")) {
 					var_dump($child->nodeValue);die("!!!!!!!!!!!!!!!!!!!!!!!!");
 				}
 				if($child->nodeValue === "?xml encoding=\"utf-8\" ?") {
