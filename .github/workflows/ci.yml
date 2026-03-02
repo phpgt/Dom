@@ -114,8 +114,6 @@ jobs:
         with:
           php_version: ${{ matrix.php }}
           path: src/
-          level: 6
-          memory_limit: 256M
 
   phpmd:
     runs-on: ubuntu-latest
