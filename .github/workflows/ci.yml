@@ -15,10 +15,10 @@ jobs:
         php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Cache Composer dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /tmp/composer-cache
           key: ${{ runner.os }}-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
@@ -114,7 +114,8 @@ jobs:
         with:
           php_version: ${{ matrix.php }}
           path: src/
-          configuration: phpstan.neon
+          level: 6
+          memory_limit: 256M
 
   phpmd:
     runs-on: ubuntu-latest
