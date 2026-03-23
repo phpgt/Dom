@@ -50,7 +50,7 @@ class HTMLSelectElementTest extends HTMLElementTestCase {
 		$sut = $document->createElement("select");
 		$optGroup1 = $document->createElement("optgroup");
 		$optGroup2 = $document->createElement("optgroup");
-		$sut->appendChild($optGroup2);
+		$sut->appendChild($optGroup1);
 		$sut->appendChild($optGroup2);
 		$optionArray = [];
 
@@ -69,6 +69,7 @@ class HTMLSelectElementTest extends HTMLElementTestCase {
 		}
 
 		self::assertCount(6, $sut->options);
+		self::assertSame(6, $sut->length);
 		foreach($optionArray as $i => $option) {
 			self::assertSame($option, $sut->options[$i]);
 		}
