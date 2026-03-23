@@ -1,18 +1,19 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 permissions:
   contents: read
   actions: read
-  id-token: none
 
 jobs:
   composer:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.1 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/checkout@v6
@@ -27,6 +28,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php }}
+          php_extensions: pcntl
 
       - name: Archive build
         run: mkdir /tmp/github-actions/ && tar --exclude=".git" -cvf /tmp/github-actions/build.tar ./
@@ -36,13 +38,14 @@ jobs:
         with:
           name: build-artifact-${{ matrix.php }}
           path: /tmp/github-actions
+          retention-days: 1
 
   phpunit:
     runs-on: ubuntu-latest
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.1 8.2, 8.3, 8.4, 8.5 ]
 
     outputs:
       coverage: ${{ steps.store-coverage.outputs.coverage_text }}
@@ -77,7 +80,7 @@ jobs:
     needs: [ phpunit ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.1 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/checkout@v4
@@ -92,13 +95,15 @@ jobs:
 
       - name: Upload to Codecov
         uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   phpstan:
     runs-on: ubuntu-latest
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.1 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/download-artifact@v4
@@ -114,13 +119,15 @@ jobs:
         with:
           php_version: ${{ matrix.php }}
           path: src/
+          level: 6
+          memory_limit: 256M
 
   phpmd:
     runs-on: ubuntu-latest
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.1 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/download-artifact@v4
@@ -144,7 +151,7 @@ jobs:
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.1 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/download-artifact@v4
@@ -161,21 +168,3 @@ jobs:
           php_version: ${{ matrix.php }}
           path: src/
           standard: phpcs.xml
-
-  remove_old_artifacts:
-    runs-on: ubuntu-latest
-
-    permissions:
-      actions: write
-
-    steps:
-      - name: Remove old artifacts for prior workflow runs on this repository
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api "/repos/${{ github.repository }}/actions/artifacts" | jq ".artifacts[] | select(.name | startswith(\"build-artifact\")) | .id" > artifact-id-list.txt
-          while read id
-          do
-            echo -n "Deleting artifact ID $id ... "
-            gh api --method DELETE /repos/${{ github.repository }}/actions/artifacts/$id && echo "Done"
-          done <artifact-id-list.txt
