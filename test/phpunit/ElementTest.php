@@ -650,4 +650,23 @@ class ElementTest extends TestCase {
 		self::assertStringContainsString($copyright, $h1->innerHTML);
 		self::assertStringContainsString($trademark, $h1->innerHTML);
 	}
+
+	public function testValue_empty():void {
+		$document = new HTMLDocument("<!doctype html><input name='test' />");
+		$sut = $document->querySelector("input[name='test']");
+		self::assertEmpty($sut->value);
+	}
+
+	public function testValue_notEmptyFromHTML():void {
+		$document = new HTMLDocument("<!doctype html><input name='test' value='abcdef' />");
+		$sut = $document->querySelector("input[name='test']");
+		self::assertNotEmpty($sut->value);
+	}
+
+	public function testValue_notEmptyFromProperty():void {
+		$document = new HTMLDocument();
+		$sut = $document->createElement("input");
+		$sut->value = "abcdef";
+		self::assertNotEmpty($sut->value);
+	}
 }
