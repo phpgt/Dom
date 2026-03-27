@@ -45,6 +45,36 @@ class HTMLSelectElementTest extends HTMLElementTestCase {
 		}
 	}
 
+	public function testOptionsWithinOptGroup():void {
+		$document = new HTMLDocument();
+		$sut = $document->createElement("select");
+		$optGroup1 = $document->createElement("optgroup");
+		$optGroup2 = $document->createElement("optgroup");
+		$sut->appendChild($optGroup1);
+		$sut->appendChild($optGroup2);
+		$optionArray = [];
+
+		for($i = 0; $i < 3; $i++) {
+			$option = $document->createElement("option");
+			$option->textContent = "example-1-$i";
+			$optGroup1->appendChild($option);
+			array_push($optionArray, $option);
+		}
+
+		for($i = 0; $i < 3; $i++) {
+			$option = $document->createElement("option");
+			$option->textContent = "example-2-$i";
+			$optGroup2->appendChild($option);
+			array_push($optionArray, $option);
+		}
+
+		self::assertCount(6, $sut->options);
+		self::assertSame(6, $sut->length);
+		foreach($optionArray as $i => $option) {
+			self::assertSame($option, $sut->options[$i]);
+		}
+	}
+
 	public function testSelectedIndexNone():void {
 		$document = new HTMLDocument();
 		$sut = $document->createElement("select");

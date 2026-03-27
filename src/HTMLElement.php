@@ -118,7 +118,7 @@ use TypeError;
  * @property string|DOMTokenList $htmlFor Is a string containing the ID of the labeled control. This reflects the for attribute.
  * @property int $height The height HTML attribute of the <canvas> element is a positive integer reflecting the number of logical pixels (or RGBA values) going down one column of the canvas. When the attribute is not specified, or if it is set to an invalid value, like a negative, the default value of 150 is used. If no [separate] CSS height is assigned to the <canvas>, then this value will also be used as the height of the canvas in the length-unit CSS Pixel.
  * @property int $width The width HTML attribute of the <canvas> element is a positive integer reflecting the number of logical pixels (or RGBA values) going across one row of the canvas. When the attribute is not specified, or if it is set to an invalid value, like a negative, the default value of 300 is used. If no [separate] CSS width is assigned to the <canvas>, then this value will also be used as the width of the canvas in the length-unit CSS Pixel.
- * @property-read HTMLCollection $options Is a HTMLCollection representing a collection of the contained option elements.
+ * @property-read HTMLOptionsCollection $options Is a HTMLCollection representing a collection of the contained option elements.
  * @property bool $open Is a boolean reflecting the open HTML attribute, indicating whether the element’s contents (not counting the <summary>) is to be shown to the user.
  * @property string $returnValue A DOMString that sets or returns the return value for the dialog.
  * @property string $accessKey Is a DOMString representing the access key assigned to the element.
@@ -2246,6 +2246,10 @@ trait HTMLElement {
 			ElementType::HTMLDataListElement,
 			ElementType::HTMLSelectElement,
 		);
+		if($this->elementType === ElementType::HTMLSelectElement) {
+			return $this->getSelectOptionsCollection();
+		}
+
 		return $this->getElementsByTagName("option");
 	}
 
@@ -2304,9 +2308,7 @@ trait HTMLElement {
 		);
 
 		if($this->elementType === ElementType::HTMLSelectElement) {
-			return HTMLCollectionFactory::createHTMLOptionsCollection(
-				fn() => $this->children
-			);
+			return $this->getSelectOptionsCollection();
 		}
 
 		return HTMLCollectionFactory::createHTMLFormControlsCollection(
@@ -2318,6 +2320,12 @@ trait HTMLElement {
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/length */
 	protected function __prop_get_length():int {
 		return count($this->elements);
+	}
+
+	private function getSelectOptionsCollection():HTMLOptionsCollection {
+		return HTMLCollectionFactory::createHTMLOptionsCollection(
+			fn() => $this->querySelectorAll("option")
+		);
 	}
 
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/method */
