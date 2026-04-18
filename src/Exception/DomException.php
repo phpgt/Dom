@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom\Exception;
+namespace GT\Dom\Exception;
 
 use RuntimeException;
 

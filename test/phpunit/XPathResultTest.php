@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
-use Gt\Dom\XMLDocument;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\XMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class XPathResultTest extends TestCase {

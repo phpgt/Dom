@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 class HTMLCollectionFactory extends HTMLCollection {
 	public static function create(callable $callback):HTMLCollection {

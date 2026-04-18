@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\ClientSide\MediaStream;
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\ClientSide\MediaStream;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\HTMLDocument;
 
 class HTMLAudioElementTest extends HTMLElementTestCase {
 	public function testAudioTracks():void {

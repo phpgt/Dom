@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 /**
  * The NonDocumentTypeChildNode interface contains methods that are particular

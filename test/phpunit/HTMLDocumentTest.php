@@ -1,24 +1,24 @@
 <?php /** @noinspection HtmlRequiredTitleElement */
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Attr;
-use Gt\Dom\Comment;
-use Gt\Dom\DocumentFragment;
-use Gt\Dom\DocumentType;
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\Dom\Exception\DocumentHasMoreThanOneElementChildException;
-use Gt\Dom\Exception\DocumentStreamNotWritableException;
-use Gt\Dom\Exception\HTMLDocumentDoesNotSupportCDATASectionException;
-use Gt\Dom\Exception\InvalidCharacterException;
-use Gt\Dom\Exception\TextNodeCanNotBeRootNodeException;
-use Gt\Dom\Exception\WrongDocumentErrorException;
-use Gt\Dom\Exception\XPathQueryException;
-use Gt\Dom\HTMLCollection;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\Attr;
+use GT\Dom\Comment;
+use GT\Dom\DocumentFragment;
+use GT\Dom\DocumentType;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\Dom\Exception\DocumentHasMoreThanOneElementChildException;
+use GT\Dom\Exception\DocumentStreamNotWritableException;
+use GT\Dom\Exception\HTMLDocumentDoesNotSupportCDATASectionException;
+use GT\Dom\Exception\InvalidCharacterException;
+use GT\Dom\Exception\TextNodeCanNotBeRootNodeException;
+use GT\Dom\Exception\WrongDocumentErrorException;
+use GT\Dom\Exception\XPathQueryException;
+use GT\Dom\HTMLCollection;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
 use Gt\PropFunc\PropertyReadOnlyException;
 use PHPUnit\Framework\TestCase;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 use Throwable;
 
 /** @runTestsInSeparateProcesses */

@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom\ClientSide;
+namespace GT\Dom\ClientSide;
 
 class TextTrack extends ClientSideOnly {
 

@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\Exception\IndexSizeException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Exception\IndexSizeException;
+use GT\Dom\HTMLDocument;
 
 class HTMLTableRowElementTest extends HTMLElementTestCase {
 	public function testDeleteCellEmpty():void {

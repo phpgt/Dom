@@ -1,13 +1,13 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use ArrayAccess;
 use Countable;
 use DOMElement;
 use DOMNamedNodeMap;
 use DOMNode;
-use Gt\Dom\Exception\InvalidAdjacentPositionException;
-use Gt\Dom\Exception\XPathQueryException;
+use GT\Dom\Exception\InvalidAdjacentPositionException;
+use GT\Dom\Exception\XPathQueryException;
 use Gt\PropFunc\MagicProp;
 use ReturnTypeWillChange;
 

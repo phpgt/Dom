@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use DOMXPath;
-use Gt\Dom\Exception\XPathQueryException;
+use GT\Dom\Exception\XPathQueryException;
 use Iterator;
 
 /**

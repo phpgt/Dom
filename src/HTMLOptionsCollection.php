@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 class HTMLOptionsCollection extends HTMLCollection {
 }

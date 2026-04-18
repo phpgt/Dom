@@ -1,18 +1,18 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Exception\NotFoundErrorException;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Node;
-use Gt\Dom\Test\TestFactory\NodeTestFactory;
-use Gt\Dom\Text;
-use Gt\Dom\XMLDocument;
+use GT\Dom\Exception\NotFoundErrorException;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Node;
+use GT\Dom\Test\TestFactory\NodeTestFactory;
+use GT\Dom\Text;
+use GT\Dom\XMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class NodeTest extends TestCase {
 	public function testCanNotConstruct():void {
 		self::expectException(\Error::class);
-		self::expectExceptionMessageMatches("/Call to private Gt.Dom.Node[0-9]*::__construct()/");
+		self::expectExceptionMessageMatches("/Call to private GT.Dom.Node[0-9]*::__construct()/");
 		$className = Node::class;
 		/** @phpstan-ignore-next-line */
 		new $className();

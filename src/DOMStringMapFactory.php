@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 class DOMStringMapFactory extends DOMStringMap {
 	public static function createDataset(Element $element):DOMStringMap {

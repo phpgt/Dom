@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use DOMText;
-use Gt\Dom\Exception\IndexSizeException;
+use GT\Dom\Exception\IndexSizeException;
 use Gt\PropFunc\MagicProp;
 
 /**

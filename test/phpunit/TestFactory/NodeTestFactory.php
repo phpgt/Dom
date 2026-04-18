@@ -1,10 +1,10 @@
 <?php
-namespace Gt\Dom\Test\TestFactory;
+namespace GT\Dom\Test\TestFactory;
 
-use Gt\Dom\Document;
-use Gt\Dom\DocumentFragment;
-use Gt\Dom\Element;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Document;
+use GT\Dom\DocumentFragment;
+use GT\Dom\Element;
+use GT\Dom\HTMLDocument;
 
 class NodeTestFactory {
 	public static function createNode(

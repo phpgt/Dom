@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\ElementType;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\ElementType;
+use GT\Dom\HTMLDocument;
 
 class HTMLQuoteElementTest extends HTMLElementTestCase {
 	public function testCite():void {

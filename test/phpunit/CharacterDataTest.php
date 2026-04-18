@@ -1,8 +1,7 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Document;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class CharacterDataTest extends TestCase {

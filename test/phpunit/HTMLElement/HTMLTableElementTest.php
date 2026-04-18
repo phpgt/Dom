@@ -1,11 +1,11 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\ElementType;
-use Gt\Dom\Exception\HierarchyRequestError;
-use Gt\Dom\Exception\IndexSizeException;
-use Gt\Dom\HTMLCollection;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\ElementType;
+use GT\Dom\Exception\HierarchyRequestError;
+use GT\Dom\Exception\IndexSizeException;
+use GT\Dom\HTMLCollection;
+use GT\Dom\HTMLDocument;
 use TypeError;
 
 class HTMLTableElementTest extends HTMLElementTestCase {
