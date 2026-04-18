@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use ArrayAccess;
 use Countable;
-use Gt\Dom\Exception\NodeListImmutableException;
+use GT\Dom\Exception\NodeListImmutableException;
 use Iterator;
 use Gt\PropFunc\MagicProp;
 use Traversable;

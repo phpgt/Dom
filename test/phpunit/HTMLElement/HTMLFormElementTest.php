@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\Exception\ArrayAccessReadOnlyException;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\HTMLFormControlsCollection;
+use GT\Dom\Exception\ArrayAccessReadOnlyException;
+use GT\Dom\HTMLDocument;
+use GT\Dom\HTMLFormControlsCollection;
 
 class HTMLFormElementTest extends HTMLElementTestCase {
 	public function testElementsEmpty():void {

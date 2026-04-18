@@ -1,7 +1,7 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 
 class HTMLTableColElementTest extends HTMLElementTestCase {
 	public function testSpan():void {

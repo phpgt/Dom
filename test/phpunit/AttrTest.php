@@ -1,9 +1,7 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Attr;
-use Gt\Dom\Element;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class AttrTest extends TestCase {

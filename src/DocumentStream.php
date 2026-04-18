@@ -1,11 +1,11 @@
 <?php
 
-namespace Gt\Dom;
+namespace GT\Dom;
 
-use Gt\Dom\Exception\DocumentStreamIsClosedException;
-use Gt\Dom\Exception\DocumentStreamNotWritableException;
-use Gt\Dom\Exception\DocumentStreamSeekFailureException;
-use Gt\Dom\Exception\WriteOnNonHTMLDocumentException;
+use GT\Dom\Exception\DocumentStreamIsClosedException;
+use GT\Dom\Exception\DocumentStreamNotWritableException;
+use GT\Dom\Exception\DocumentStreamSeekFailureException;
+use GT\Dom\Exception\WriteOnNonHTMLDocumentException;
 use RuntimeException;
 use TypeError;
 

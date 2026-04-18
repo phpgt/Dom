@@ -73,12 +73,14 @@
 
 	"autoload": {
 		"psr-4": {
-		      "Gt\\Dom\\": "./src"
+			"GT\\Dom\\": "./src",
+			"Gt\\Dom\\": "./src"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-		      "Gt\\Dom\\Test\\": "./test/phpunit"
+			"GT\\Dom\\Test\\": "./test/phpunit",
+			"Gt\\Dom\\Test\\": "./test/phpunit"
 		}
 	},
 

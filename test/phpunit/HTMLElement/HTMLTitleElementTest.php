@@ -1,7 +1,7 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 
 class HTMLTitleElementTest extends HTMLElementTestCase {
 	public function testText():void {

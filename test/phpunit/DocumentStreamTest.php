@@ -1,13 +1,13 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Document;
-use Gt\Dom\Exception\DocumentStreamIsClosedException;
-use Gt\Dom\Exception\DocumentStreamNotWritableException;
-use Gt\Dom\Exception\DocumentStreamSeekFailureException;
-use Gt\Dom\Exception\WriteOnNonHTMLDocumentException;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\XMLDocument;
+use GT\Dom\Document;
+use GT\Dom\Exception\DocumentStreamIsClosedException;
+use GT\Dom\Exception\DocumentStreamNotWritableException;
+use GT\Dom\Exception\DocumentStreamSeekFailureException;
+use GT\Dom\Exception\WriteOnNonHTMLDocumentException;
+use GT\Dom\HTMLDocument;
+use GT\Dom\XMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class DocumentStreamTest extends TestCase {

@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use DOMCdataSection;
 

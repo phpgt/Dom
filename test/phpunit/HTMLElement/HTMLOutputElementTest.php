@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
 
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 
 class HTMLOutputElementTest extends HTMLElementTestCase {
 	public function testDefaultValue():void {

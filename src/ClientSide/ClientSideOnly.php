@@ -1,7 +1,7 @@
 <?php
-namespace Gt\Dom\ClientSide;
+namespace GT\Dom\ClientSide;
 
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
 
 abstract class ClientSideOnly {
 	public function __construct() {

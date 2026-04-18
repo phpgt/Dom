@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 /**
  * A NodeFilter interface represents an object used to filter the nodes in a
  * NodeIterator or TreeWalker. A NodeFilter knows nothing about the document or

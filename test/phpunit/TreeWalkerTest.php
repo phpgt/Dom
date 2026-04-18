@@ -1,21 +1,21 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Attr;
-use Gt\Dom\Comment;
-use Gt\Dom\Document;
-use Gt\Dom\DocumentFragment;
-use Gt\Dom\DocumentType;
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Node;
-use Gt\Dom\NodeFilter;
-use Gt\Dom\ProcessingInstruction;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
-use Gt\Dom\Text;
-use Gt\Dom\TreeWalkerFactory;
-use Gt\Dom\XMLDocument;
+use GT\Dom\Attr;
+use GT\Dom\Comment;
+use GT\Dom\Document;
+use GT\Dom\DocumentFragment;
+use GT\Dom\DocumentType;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Node;
+use GT\Dom\NodeFilter;
+use GT\Dom\ProcessingInstruction;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\Text;
+use GT\Dom\TreeWalkerFactory;
+use GT\Dom\XMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class TreeWalkerTest extends TestCase {

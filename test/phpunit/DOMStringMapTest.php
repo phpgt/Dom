@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUndefinedFieldInspection */
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\DOMStringMap;
+use GT\Dom\DOMStringMap;
 use PHPUnit\Framework\TestCase;
 
 class DOMStringMapTest extends TestCase {

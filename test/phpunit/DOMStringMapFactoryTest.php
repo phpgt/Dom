@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\DOMStringMapFactory;
-use Gt\Dom\Element;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\DOMStringMapFactory;
+use GT\Dom\Element;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class DOMStringMapFactoryTest extends TestCase {

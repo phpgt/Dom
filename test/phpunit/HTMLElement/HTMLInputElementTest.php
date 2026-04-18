@@ -1,10 +1,10 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
 use DateTime;
-use Gt\Dom\ClientSide\FileList;
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\ClientSide\FileList;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\HTMLDocument;
 
 class HTMLInputElementTest extends HTMLElementTestCase {
 	public function testChecked():void {

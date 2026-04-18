@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\HTMLDocument;
 
 class HTMLObjectElementTest extends HTMLElementTestCase {
 	public function testContentDocument():void {

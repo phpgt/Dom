@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 class NodeIteratorFactory extends NodeIterator {
 	public static function create(

@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Text;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Text;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 

@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom\Test\TestFactory;
+namespace GT\Dom\Test\TestFactory;
 
-use Gt\Dom\Facade\HTMLDocumentFactory;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\HTMLElement\HTMLElement;
+use GT\Dom\Facade\HTMLDocumentFactory;
+use GT\Dom\HTMLDocument;
+use GT\Dom\HTMLElement\HTMLElement;
 
 class HTMLElementTestFactory {
 	public static function create(

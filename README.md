@@ -50,8 +50,8 @@ This is a simple example of how source HTML files can be treated as templates. T
 
 ```php
 <?php
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\HTMLElement\HTMLSpanElement;
+use GT\Dom\HTMLDocument;
+use GT\Dom\HTMLElement\HTMLSpanElement;
 require "vendor/autoload.php";
 
 $html = file_get_contents("name.html");
@@ -99,8 +99,6 @@ This repository is intended to be as accurate to the DOM specification as possib
 ## PHP 8.4 native HTMLDocument
 
 Since PHP 8.4's release, there has been a new native HTMLDocument class shipped in PHP natively. With this having native bindings, all operations are much faster. Work has been started to make PHPGT's Dom implementation utilise the new native code. Luckily, the DOM is a very well defined standard so whatever happens, minimal or no changes will be required to your code.
-
-Take a look at the benchmarks on the php84-benchmark branch for yourself: most operations are recorded to have a 90% or higher increase in speed by switching to the native implementation!
 
 More information will be laid out in the readme when more work has been taken towards an implementation of the native classes.
 

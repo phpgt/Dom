@@ -1,7 +1,7 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
-use Gt\Dom\Exception\MimeTypeNotSupportedException;
+use GT\Dom\Exception\MimeTypeNotSupportedException;
 
 class DOMParser {
 	public function __construct() {

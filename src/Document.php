@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use DOMAttr;
 use DOMCdataSection;
@@ -16,9 +16,9 @@ use DOMNode;
 use DOMNotation;
 use DOMProcessingInstruction;
 use DOMText;
-use Gt\Dom\Exception\HTMLDocumentDoesNotSupportCDATASectionException;
-use Gt\Dom\Exception\InvalidCharacterException;
-use Gt\Dom\Exception\NotSupportedException;
+use GT\Dom\Exception\HTMLDocumentDoesNotSupportCDATASectionException;
+use GT\Dom\Exception\InvalidCharacterException;
+use GT\Dom\Exception\NotSupportedException;
 use Psr\Http\Message\StreamInterface;
 use Stringable;
 
