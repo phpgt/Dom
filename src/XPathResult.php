@@ -13,7 +13,7 @@ use Iterator;
  *
  * @link https://developer.mozilla.org/en-US/docs/Web/API/XPathResult
  *
- * @implements Iterator<Node|Element>
+ * @implements Iterator<Node|Element|Attr|Text>
  */
 class XPathResult implements Iterator {
 	private NodeList $nodeList;
