@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use ArrayAccess;
 use Countable;
-use Gt\Dom\Exception\HTMLCollectionImmutableException;
+use GT\Dom\Exception\HTMLCollectionImmutableException;
 use Gt\PropFunc\MagicProp;
 use Iterator;
 

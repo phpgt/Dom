@@ -1,12 +1,12 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Element;
-use Gt\Dom\Exception\HTMLCollectionImmutableException;
-use Gt\Dom\HTMLCollectionFactory;
-use Gt\Dom\NodeListFactory;
-use Gt\Dom\RadioNodeList;
-use Gt\Dom\Test\TestFactory\NodeTestFactory;
+use GT\Dom\Element;
+use GT\Dom\Exception\HTMLCollectionImmutableException;
+use GT\Dom\HTMLCollectionFactory;
+use GT\Dom\NodeListFactory;
+use GT\Dom\RadioNodeList;
+use GT\Dom\Test\TestFactory\NodeTestFactory;
 use PHPUnit\Framework\TestCase;
 
 class HTMLCollectionTest extends TestCase {

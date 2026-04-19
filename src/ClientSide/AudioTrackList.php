@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom\ClientSide;
+namespace GT\Dom\ClientSide;
 
 class AudioTrackList extends ClientSideOnly {
 

@@ -1,13 +1,13 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use DOMException;
 use DOMNode;
 use Gt\CssXPath\Translator;
-use Gt\Dom\Exception\DocumentHasMoreThanOneElementChildException;
-use Gt\Dom\Exception\NotFoundErrorException;
-use Gt\Dom\Exception\TextNodeCanNotBeRootNodeException;
-use Gt\Dom\Exception\WrongDocumentErrorException;
+use GT\Dom\Exception\DocumentHasMoreThanOneElementChildException;
+use GT\Dom\Exception\NotFoundErrorException;
+use GT\Dom\Exception\TextNodeCanNotBeRootNodeException;
+use GT\Dom\Exception\WrongDocumentErrorException;
 use ReturnTypeWillChange;
 
 /**

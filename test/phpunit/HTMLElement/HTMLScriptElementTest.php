@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
 
 class HTMLScriptElementTest extends HTMLElementTestCase {
 	public function testType():void {

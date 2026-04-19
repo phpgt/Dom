@@ -1,13 +1,13 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Exception\InvalidAdjacentPositionException;
-use Gt\Dom\Exception\InvalidCharacterException;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
-use Gt\Dom\Test\TestFactory\NodeTestFactory;
-use Gt\Dom\Text;
-use Gt\Dom\XMLDocument;
+use GT\Dom\Exception\InvalidAdjacentPositionException;
+use GT\Dom\Exception\InvalidCharacterException;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\Test\TestFactory\NodeTestFactory;
+use GT\Dom\Text;
+use GT\Dom\XMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class ElementTest extends TestCase {

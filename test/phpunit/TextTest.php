@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Exception\IndexSizeException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Exception\IndexSizeException;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class TextTest extends TestCase {

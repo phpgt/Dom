@@ -1,7 +1,7 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLDocument;
 
 class HTMLOListElementTest extends HTMLElementTestCase {
 	public function testReversed():void {

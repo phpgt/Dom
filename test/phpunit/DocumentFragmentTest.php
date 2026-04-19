@@ -1,9 +1,7 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\DocumentFragment;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Test\TestFactory\NodeTestFactory;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class DocumentFragmentTest extends TestCase {

@@ -1,9 +1,9 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\RadioNodeList;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\HTMLDocument;
+use GT\Dom\RadioNodeList;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
 use PHPUnit\Framework\TestCase;
 
 class RadioNodeListTest extends TestCase {

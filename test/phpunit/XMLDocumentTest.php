@@ -1,15 +1,15 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
 use DOMDocument;
-use Gt\Dom\DocumentType;
-use Gt\Dom\Element;
-use Gt\Dom\ElementType;
-use Gt\Dom\Exception\InvalidCharacterException;
-use Gt\Dom\Exception\WriteOnNonHTMLDocumentException;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
-use Gt\Dom\XMLDocument;
+use GT\Dom\DocumentType;
+use GT\Dom\Element;
+use GT\Dom\ElementType;
+use GT\Dom\Exception\InvalidCharacterException;
+use GT\Dom\Exception\WriteOnNonHTMLDocumentException;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\XMLDocument;
 use Gt\PropFunc\PropertyDoesNotExistException;
 use PHPUnit\Framework\TestCase;
 

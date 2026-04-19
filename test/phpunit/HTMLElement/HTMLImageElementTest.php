@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\HTMLDocument;
 
 class HTMLImageElementTest extends HTMLElementTestCase {
 	public function testAlt():void {

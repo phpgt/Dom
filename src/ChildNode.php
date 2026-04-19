@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 /**
  * The ChildNode mixin contains methods and properties that are common to all

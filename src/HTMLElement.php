@@ -1,27 +1,27 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 use DateTimeImmutable;
 use DateTimeInterface;
 use Exception;
-use Gt\Dom\ClientSide\AudioTrackList;
-use Gt\Dom\ClientSide\CSSStyleDeclaration;
-use Gt\Dom\ClientSide\FileList;
-use Gt\Dom\ClientSide\MediaController;
-use Gt\Dom\ClientSide\MediaError;
-use Gt\Dom\ClientSide\MediaStream;
-use Gt\Dom\ClientSide\StyleSheet;
-use Gt\Dom\ClientSide\TextTrack;
-use Gt\Dom\ClientSide\TextTrackList;
-use Gt\Dom\ClientSide\TimeRanges;
-use Gt\Dom\ClientSide\ValidityState;
-use Gt\Dom\ClientSide\VideoTrackList;
-use Gt\Dom\Exception\ArrayAccessReadOnlyException;
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
-use Gt\Dom\Exception\EnumeratedValueException;
-use Gt\Dom\Exception\HierarchyRequestError;
-use Gt\Dom\Exception\IncorrectHTMLElementUsageException;
-use Gt\Dom\Exception\IndexSizeException;
+use GT\Dom\ClientSide\AudioTrackList;
+use GT\Dom\ClientSide\CSSStyleDeclaration;
+use GT\Dom\ClientSide\FileList;
+use GT\Dom\ClientSide\MediaController;
+use GT\Dom\ClientSide\MediaError;
+use GT\Dom\ClientSide\MediaStream;
+use GT\Dom\ClientSide\StyleSheet;
+use GT\Dom\ClientSide\TextTrack;
+use GT\Dom\ClientSide\TextTrackList;
+use GT\Dom\ClientSide\TimeRanges;
+use GT\Dom\ClientSide\ValidityState;
+use GT\Dom\ClientSide\VideoTrackList;
+use GT\Dom\Exception\ArrayAccessReadOnlyException;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\Exception\EnumeratedValueException;
+use GT\Dom\Exception\HierarchyRequestError;
+use GT\Dom\Exception\IncorrectHTMLElementUsageException;
+use GT\Dom\Exception\IndexSizeException;
 use TypeError;
 
 /**
@@ -30,9 +30,9 @@ use TypeError;
  * the highly optimised speed of libxml, the classes registered as "node
  * classes" from Document::registerNodeClasses all have to extend the base
  * DOMNode classes, but cannot extend each other. Therefore, even though a
- * DOMElement extends a DOMNode, and a Gt\Dom\Element extends DOMElement and a
- * Gt\Dom\Node extends a DOMNode, it is in fact impossible for a Gt\Dom\Element
- * to extend a Gt\Dom\Node.
+ * DOMElement extends a DOMNode, and a GT\Dom\Element extends DOMElement and a
+ * GT\Dom\Node extends a DOMNode, it is in fact impossible for a GT\Dom\Element
+ * to extend a GT\Dom\Node.
  *
  * This is all handled by the underlying implementation, so there is not really
  * any downside, apart from the hierarchy being confusing. What is limited

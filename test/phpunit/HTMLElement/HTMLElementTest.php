@@ -1,11 +1,11 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\ClientSide\CSSStyleDeclaration;
-use Gt\Dom\Exception\ClientSideOnlyFunctionalityException;
-use Gt\Dom\Exception\EnumeratedValueException;
-use Gt\Dom\Exception\IncorrectHTMLElementUsageException;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\ClientSide\CSSStyleDeclaration;
+use GT\Dom\Exception\ClientSideOnlyFunctionalityException;
+use GT\Dom\Exception\EnumeratedValueException;
+use GT\Dom\Exception\IncorrectHTMLElementUsageException;
+use GT\Dom\HTMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class HTMLElementTest extends HTMLElementTestCase {

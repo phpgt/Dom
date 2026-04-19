@@ -1,8 +1,8 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\HTMLCollection;
-use Gt\Dom\HTMLDocument;
+use GT\Dom\HTMLCollection;
+use GT\Dom\HTMLDocument;
 
 class HTMLFieldSetElementTest extends HTMLElementTestCase {
 	public function testDisabled():void {

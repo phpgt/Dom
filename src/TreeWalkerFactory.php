@@ -1,5 +1,5 @@
 <?php
-namespace Gt\Dom;
+namespace GT\Dom;
 
 class TreeWalkerFactory extends TreeWalker {
 	public static function create(

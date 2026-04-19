@@ -1,10 +1,10 @@
 <?php
-namespace Gt\Dom\Test;
+namespace GT\Dom\Test;
 
-use Gt\Dom\Document;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\Test\TestFactory\DocumentTestFactory;
-use Gt\Dom\XMLDocument;
+use GT\Dom\Document;
+use GT\Dom\HTMLDocument;
+use GT\Dom\Test\TestFactory\DocumentTestFactory;
+use GT\Dom\XMLDocument;
 use PHPUnit\Framework\TestCase;
 
 class DocumentTypeTest extends TestCase {

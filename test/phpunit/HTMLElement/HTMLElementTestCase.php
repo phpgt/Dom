@@ -1,7 +1,7 @@
 <?php
-namespace Gt\Dom\Test\HTMLElement;
+namespace GT\Dom\Test\HTMLElement;
 
-use Gt\Dom\Element;
+use GT\Dom\Element;
 use PHPUnit\Framework\TestCase;
 
 abstract class HTMLElementTestCase extends TestCase {

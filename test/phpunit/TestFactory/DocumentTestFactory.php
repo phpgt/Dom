@@ -1,9 +1,9 @@
 <?php /** @noinspection JSUnresolvedLibraryURL */
-namespace Gt\Dom\Test\TestFactory;
+namespace GT\Dom\Test\TestFactory;
 
-use Gt\Dom\DOMParser;
-use Gt\Dom\HTMLDocument;
-use Gt\Dom\XMLDocument;
+use GT\Dom\DOMParser;
+use GT\Dom\HTMLDocument;
+use GT\Dom\XMLDocument;
 
 class DocumentTestFactory {
 	const HTML_DEFAULT = <<<HTML
