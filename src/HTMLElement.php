@@ -836,7 +836,7 @@ trait HTMLElement {
 			}
 		}
 		elseif($this->elementType === ElementType::HTMLTextAreaElement) {
-			$this->nodeValue = $value;
+			$this->textContent = $value;
 		}
 		else {
 			$this->setAttribute("value", $value);
