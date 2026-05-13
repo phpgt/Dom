@@ -147,6 +147,10 @@ class Element extends DOMElement implements ArrayAccess, Countable {
 
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML */
 	public function __prop_get_innerHTML():string {
+		if($this->elementType === ElementType::HTMLTextAreaElement) {
+			return $this->textContent;
+		}
+
 		$html = "";
 
 		foreach($this->childNodes as $child) {

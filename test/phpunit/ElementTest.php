@@ -669,4 +669,20 @@ class ElementTest extends TestCase {
 		$sut->value = "abcdef";
 		self::assertNotEmpty($sut->value);
 	}
+
+	public function testValue_textAreaAmpersand():void {
+		$document = new HTMLDocument();
+		$sut = $document->createElement("textarea");
+		$string = "This & that";
+		$sut->value = $string;
+		self::assertSame($string, $sut->innerHTML);
+	}
+
+	public function testValue_textAreaAmpersandInnerHTML():void {
+		$document = new HTMLDocument();
+		$sut = $document->createElement("textarea");
+		$string = "This & that";
+		$sut->innerHTML = $string;
+		self::assertSame($string, $sut->value);
+	}
 }
