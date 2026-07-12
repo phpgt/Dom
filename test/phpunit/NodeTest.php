@@ -44,6 +44,17 @@ class NodeTest extends TestCase {
 		self::assertCount(1, $sut->childNodes);
 	}
 
+	public function testAppendChildEmptyDocumentFragment():void {
+		$document = new HTMLDocument();
+		$sut = $document->createElement("example");
+		$fragment = $document->createDocumentFragment();
+
+		$appended = $sut->appendChild($fragment);
+
+		self::assertSame($fragment, $appended);
+		self::assertCount(0, $sut->childNodes);
+	}
+
 	public function testChildNodesManyLive():void {
 		$document = new HTMLDocument();
 		$sut = $document->createElement("example");

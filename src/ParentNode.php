@@ -101,14 +101,14 @@ trait ParentNode {
 	 * DOM tree, the node will be detached from its current position and
 	 * attached at the new position.
 	 *
-	 * @param Node|Element|Text|Comment $aChild The node to append to the
+	 * @param Node|Element|Text|Comment|DocumentFragment $aChild The node to append to the
 	 * given parent node (commonly an element).
-	 * @return Node|Element The returned value is the appended
+	 * @return Node|Element|DocumentFragment The returned value is the appended
 	 * child (aChild), except when aChild is a DocumentFragment, in which
 	 * case the empty DocumentFragment is returned.
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
 	 */
-	public function appendChild(Node|Element|Text|Comment|DOMNode $aChild):Node|Element|Text|Comment {
+	public function appendChild(Node|Element|Text|Comment|DOMNode $aChild):Node|Element|Text|Comment|DocumentFragment {
 		if($this instanceof Document) {
 			if($aChild instanceof Text) {
 				throw new TextNodeCanNotBeRootNodeException("Cannot insert a Text as a child of a Document");
@@ -117,6 +117,10 @@ trait ParentNode {
 			if($this->childElementCount > 0) {
 				throw new DocumentHasMoreThanOneElementChildException("Cannot have more than one Element child of a Document");
 			}
+		}
+
+		if($aChild instanceof DocumentFragment && !$aChild->hasChildNodes()) {
+			return $aChild;
 		}
 
 		try {
