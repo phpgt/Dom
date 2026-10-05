@@ -1,7 +1,7 @@
 <?php
 namespace GT\Dom;
 
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 
 trait Traversal {
 	use MagicProp;

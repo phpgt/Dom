@@ -10,7 +10,7 @@ use GT\Dom\Exception\WriteOnNonHTMLDocumentException;
 use GT\Dom\HTMLDocument;
 use GT\Dom\Test\TestFactory\DocumentTestFactory;
 use GT\Dom\XMLDocument;
-use Gt\PropFunc\PropertyDoesNotExistException;
+use GT\PropFunc\PropertyDoesNotExistException;
 use PHPUnit\Framework\TestCase;
 
 class XMLDocumentTest extends TestCase {

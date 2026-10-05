@@ -2,7 +2,7 @@
 namespace GT\Dom;
 
 use Countable;
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 use Iterator;
 
 /**

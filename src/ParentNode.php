@@ -3,7 +3,7 @@ namespace GT\Dom;
 
 use DOMException;
 use DOMNode;
-use Gt\CssXPath\Translator;
+use GT\CssXPath\Translator;
 use GT\Dom\Exception\DocumentHasMoreThanOneElementChildException;
 use GT\Dom\Exception\NotFoundErrorException;
 use GT\Dom\Exception\TextNodeCanNotBeRootNodeException;

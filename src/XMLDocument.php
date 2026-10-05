@@ -1,7 +1,7 @@
 <?php
 namespace GT\Dom;
 
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 
 class XMLDocument extends Document {
 	use MagicProp;

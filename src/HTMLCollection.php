@@ -4,7 +4,7 @@ namespace GT\Dom;
 use ArrayAccess;
 use Countable;
 use GT\Dom\Exception\HTMLCollectionImmutableException;
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 use Iterator;
 
 /**

@@ -1,7 +1,7 @@
 <?php
 namespace GT\Dom;
 
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 
 /**
  * @property-read ?Element $body The Document.body property represents the <body> or <frameset> node of the current document, or null if no such element exists.
