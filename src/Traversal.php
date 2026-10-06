@@ -193,7 +193,6 @@ trait Traversal {
 	 */
 	public function previousNode(
 	):null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection {
-		/** @var null|Node|Element|Text|Attr|ProcessingInstruction|Comment|Document|DocumentType|DocumentFragment|CdataSection$node */
 		$node = $this->pCurrentNode;
 
 		while($node !== $this->pRoot) {

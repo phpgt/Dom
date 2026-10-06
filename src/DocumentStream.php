@@ -171,7 +171,6 @@ trait DocumentStream {
 		if(!$this instanceof HTMLDocument) {
 			throw new WriteOnNonHTMLDocumentException();
 		}
-		/** @var HTMLDocument $this */
 		$this->stream = fopen("php://memory", "r+");
 		return $this;
 	}

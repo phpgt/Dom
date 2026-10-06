@@ -13,7 +13,7 @@ use ReturnTypeWillChange;
 
 /**
  * @property-read HTMLDocument|XMLDocument $document
- * @property-read HTMLDocument|XMLDocument $ownerDocument
+ * @property-read HTMLDocument|XMLDocument|null $ownerDocument
  *
  * @property-read DOMNamedNodeMap<Attr> $attributes Returns a NamedNodeMap object containing the assigned attributes of the corresponding HTML element.
  * @property-read NodeList<Node|Element> $childNodes
@@ -378,7 +378,6 @@ class Element extends DOMElement implements ArrayAccess, Countable {
 			return null;
 		}
 
-		/** @var Element $inserted */
 		$inserted = $context->insertBefore($element, $before);
 		if(!$inserted instanceof Element) {
 			return null;

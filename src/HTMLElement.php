@@ -3977,7 +3977,7 @@ trait HTMLElement {
 			$tbodies = [];
 			for($i = 0, $len = $this->childNodes->length; $i < $len; $i++) {
 				$child = $this->childNodes->item($i);
-				if($child !== null && strtolower($child->nodeName) === 'tbody') {
+				if($child instanceof Element && strtolower($child->nodeName) === 'tbody') {
 					array_push($tbodies, $child);
 				}
 			}
@@ -4025,7 +4025,7 @@ trait HTMLElement {
 	private function hasChildFirst(string $name):null|Node|Element {
 		for($i = 0, $len = $this->childNodes->length; $i < $len; $i++) {
 			$child = $this->childNodes->item($i);
-			if($child !== null && strtolower($child->nodeName) === $name) {
+			if($child instanceof Element && strtolower($child->nodeName) === $name) {
 				return $child;
 			}
 		}
@@ -4043,7 +4043,7 @@ trait HTMLElement {
 		$lastChild = null;
 		for($i = 0, $len = $this->childNodes->length; $i < $len; $i++) {
 			$child = $this->childNodes->item($i);
-			if($child !== null && strtolower($child->nodeName) === $name) {
+			if($child instanceof Element && strtolower($child->nodeName) === $name) {
 				$lastChild = $child;
 			}
 		}
@@ -4421,7 +4421,7 @@ trait HTMLElement {
 		}
 
 		if($this->parentElement === $table) {
-			foreach($table?->children ?? [] as $i => $child) {
+			foreach($table->children ?? [] as $i => $child) {
 				if($child === $this) {
 					return $i;
 				}
@@ -4462,7 +4462,7 @@ trait HTMLElement {
 		);
 		$parent = $this->parentElement;
 
-		foreach($parent?->children ?? [] as $i => $child) {
+		foreach($parent->children ?? [] as $i => $child) {
 			if($child === $this) {
 				return $i;
 			}

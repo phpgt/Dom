@@ -169,7 +169,7 @@ trait ParentNode {
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelector
 	 */
 	public function querySelector(string $selectors):?Element {
-		/** @var Element[] $all */
+		/** @var NodeList<Element> $all */
 		$all = $this->querySelectorAll($selectors);
 // TODO: Is there a case for optimisation here?
 // Test with a document of thousands of nodes to compare efficiency.

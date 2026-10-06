@@ -80,7 +80,7 @@ class XMLDocumentTest extends TestCase {
 
 	public function testGetElementByIdXMLBug():void {
 // There is a known bug in XML documents where getElementById doesn't actually
-// match elements. This has been patched by Gt\Dom, but to prove it, this test
+// match elements. This has been patched by GT\Dom, but to prove it, this test
 // will expose the original bug on the native document.
 		$bugDocument = new DOMDocument("1.0", "UTF-8");
 		$bugDocument->loadXML(DocumentTestFactory::XML_SHAPE);
