@@ -92,9 +92,11 @@ trait RegisteredNodeClass {
 				&& $this->data === $otherNode->data;
 		}
 
-		/** @var Text|Comment $this */
-		/** @var Text|Comment $otherNode */
-		return $this->data === $otherNode->data;
+		if(($this instanceof Text || $this instanceof Comment)
+		&& ($otherNode instanceof Text || $otherNode instanceof Comment)) {
+			return $this->data === $otherNode->data;
+		}
+		return true;
 	}
 
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected */

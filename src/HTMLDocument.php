@@ -56,7 +56,10 @@ class HTMLDocument extends Document {
 			|| $child instanceof Element) {
 				continue;
 			}
-			array_push($nonElementChildNodes, $child);
+			if($child instanceof Comment || $child instanceof Text
+			|| $child instanceof Node) {
+				array_push($nonElementChildNodes, $child);
+			}
 		}
 
 		if(is_null($this->documentElement)) {
@@ -135,7 +138,7 @@ class HTMLDocument extends Document {
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/Document/title */
 	protected function __prop_get_title():string {
 		$titleElement = $this->head?->getElementsByTagName("title")?->item(0);
-		return $titleElement?->text ?? "";
+		return $titleElement->text ?? "";
 	}
 
 	/** @link https://developer.mozilla.org/en-US/docs/Web/API/Document/title */
