@@ -5,7 +5,7 @@ use ArrayAccess;
 use Countable;
 use GT\Dom\Exception\NodeListImmutableException;
 use Iterator;
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 use Traversable;
 
 /**

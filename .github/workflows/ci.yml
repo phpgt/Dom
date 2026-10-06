@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/checkout@v6
@@ -44,7 +44,7 @@ jobs:
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     outputs:
       coverage: ${{ steps.store-coverage.outputs.coverage_text }}
@@ -79,7 +79,7 @@ jobs:
     needs: [ phpunit ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/checkout@v4
@@ -103,7 +103,7 @@ jobs:
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/download-artifact@v4
@@ -127,7 +127,7 @@ jobs:
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/download-artifact@v4
@@ -139,19 +139,18 @@ jobs:
         run: tar -xvf /tmp/github-actions/build.tar ./
 
       - name: PHP Mess Detector
-        uses: php-actions/phpmd@v1
+        uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php }}
-          path: src/
-          output: text
-          ruleset: phpmd.xml
+          command: exec
+          args: -- phpmd src/ text phpmd.xml
 
   phpcs:
     runs-on: ubuntu-latest
     needs: [ composer ]
     strategy:
       matrix:
-        php: [ 8.1, 8.2, 8.3, 8.4, 8.5 ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
       - uses: actions/download-artifact@v4

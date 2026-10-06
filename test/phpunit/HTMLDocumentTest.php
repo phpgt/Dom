@@ -16,7 +16,7 @@ use GT\Dom\Exception\WrongDocumentErrorException;
 use GT\Dom\Exception\XPathQueryException;
 use GT\Dom\HTMLCollection;
 use GT\Dom\Test\TestFactory\DocumentTestFactory;
-use Gt\PropFunc\PropertyReadOnlyException;
+use GT\PropFunc\PropertyReadOnlyException;
 use PHPUnit\Framework\TestCase;
 use GT\Dom\HTMLDocument;
 use Throwable;

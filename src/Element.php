@@ -8,7 +8,7 @@ use DOMNamedNodeMap;
 use DOMNode;
 use GT\Dom\Exception\InvalidAdjacentPositionException;
 use GT\Dom\Exception\XPathQueryException;
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 use ReturnTypeWillChange;
 
 /**
