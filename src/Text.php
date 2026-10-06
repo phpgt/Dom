@@ -3,7 +3,7 @@ namespace GT\Dom;
 
 use DOMText;
 use GT\Dom\Exception\IndexSizeException;
-use Gt\PropFunc\MagicProp;
+use GT\Dom\MagicProp;
 
 /**
  * The Text interface represents the textual content of Element or Attr.
