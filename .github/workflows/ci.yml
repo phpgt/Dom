@@ -16,10 +16,10 @@ jobs:
         php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Cache Composer dependencies
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: /tmp/composer-cache
           key: ${{ runner.os }}-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
@@ -33,7 +33,7 @@ jobs:
         run: mkdir /tmp/github-actions/ && tar --exclude=".git" -cvf /tmp/github-actions/build.tar ./
 
       - name: Upload build archive for test runners
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifact-${{ matrix.php }}
           path: /tmp/github-actions
@@ -50,7 +50,7 @@ jobs:
       coverage: ${{ steps.store-coverage.outputs.coverage_text }}
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: build-artifact-${{ matrix.php }}
           path: /tmp/github-actions
@@ -69,7 +69,7 @@ jobs:
           coverage_clover: _coverage/clover.xml
 
       - name: Store coverage data
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: code-coverage-${{ matrix.php }}-${{ github.run_number }}
           path: _coverage
@@ -82,9 +82,9 @@ jobs:
         php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: code-coverage-${{ matrix.php }}-${{ github.run_number }}
           path: _coverage
@@ -93,7 +93,7 @@ jobs:
         run: cat "_coverage/coverage.txt"
 
       - name: Upload to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: ${{ github.repository }}
@@ -106,7 +106,7 @@ jobs:
         php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: build-artifact-${{ matrix.php }}
           path: /tmp/github-actions
@@ -130,7 +130,7 @@ jobs:
         php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: build-artifact-${{ matrix.php }}
           path: /tmp/github-actions
@@ -153,7 +153,7 @@ jobs:
         php: [ 8.2, 8.3, 8.4, 8.5 ]
 
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: build-artifact-${{ matrix.php }}
           path: /tmp/github-actions
